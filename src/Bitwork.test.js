@@ -1,23 +1,26 @@
 const bitwork = require('bitwork')
-const bit = new bitwork({ rpc: { user: "root", pass: "nfhRO+3[" } })
-
-
+const bit = new bitwork({ rpc: { protocol: "https", host: "miner.entangleit.com", user: "root", pass: "nfhRO+3[" }, peer: { host: "miner.entangleit.com", port: 80  } } )
 
 describe('bitwork operations', () => {
-  bit.on("ready", () => {
-    // YOUR LOGIC
-    console.log('bitwork ready')
+  test('bitwork ready', async () => {
+    expect(bit).toBeDefined()
+  })  
+  test('bitwork error', async () => {
+    bit.on("error", async (err) => {
+      console.log('bitwork error', err)
+    })
+    expect(bit).toBeDefined()
   })
-
-  bit.on("error", (err) => {
-    console.log('bitwork error', err)
+  test('bitwork block', async () => {
+    bit.on("block", async (block) => {
+      console.log('bitwork block', block)
+    })
+    expect(bit).toBeDefined()
   })
-  
-  bit.on("block", (block) => {
-    console.log('bitwork block', block)
-  })
-  
-  bit.on("tx", (tx) => {
-    console.log('bitwork tx', tx)
+  test('bitwork tx', async () => {
+    bit.on("tx", async (tx) => {
+      console.log('bitwork tx', tx)
+    })
+    expect(bit).toBeDefined()
   })
 });
