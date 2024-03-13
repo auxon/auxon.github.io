@@ -1,6 +1,6 @@
 {
   "name": "cryptobonsai.online",
-  "homepage": "http:s//cryptobonsai.online",
+  "homepage": "https://cryptobonsai.online",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
