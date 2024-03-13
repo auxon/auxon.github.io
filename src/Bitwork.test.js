@@ -22,3 +22,11 @@ it('generates the stream correctly', () => {
     expectSubscriptions(e1.subscriptions).toBe(e1subs);
   });
 });
+
+it('get blockHeader', (done) => {
+  jest.setTimeout(1000000);
+  bit.blockHeader().then((res) => { 
+    expect(res).toHaveProperty('hash');
+    done();
+  });
+});
