@@ -303,6 +303,8 @@ module.exports = function (webpackEnv) {
       fallback: {
         "path": require.resolve("path-browserify"),
         "http": require.resolve("stream-http"),
+        "https": require.resolve("https-browserify"),
+        "https": require.resolve("stream-browserify"),
         "buffer": require.resolve("buffer") 
       },
       // These are the reasonable defaults supported by the Node ecosystem.

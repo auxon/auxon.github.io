@@ -1,0 +1,5 @@
+
+> cryptobonsai.online@1.0.0 start
+> node scripts/start.js
+
+Something is already running on port 3000.
