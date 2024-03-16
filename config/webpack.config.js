@@ -301,11 +301,22 @@ module.exports = function (webpackEnv) {
         modules.additionalModulePaths || []
       ),
       fallback: {
-        "path": require.resolve("path-browserify"),
-        "http": require.resolve("stream-http"),
-        "https": require.resolve("https-browserify"),
-        "https": require.resolve("stream-browserify"),
-        "buffer": require.resolve("buffer") 
+        fs: false,
+        os: false,
+        path: false,
+        module: false,
+        url: false,
+        assert: require.resolve("assert"),
+        net: false,
+        dns: false,
+        crypto: require.resolve("crypto-browserify"),
+        path: require.resolve("path-browserify"),
+        http: require.resolve("stream-http"),
+        https: require.resolve("https-browserify"),
+        stream: require.resolve("stream-browserify"),
+        buffer: require.resolve("buffer"),
+        util: require.resolve("util"),
+        vm: require.resolve("vm-browserify")
       },
       // These are the reasonable defaults supported by the Node ecosystem.
       // We also include JSX as a common component filename extension to support
