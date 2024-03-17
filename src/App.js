@@ -2,18 +2,23 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 const bitwork = require('bitwork')
-const bit = new bitwork({ rpc: { user: "root", pass: "nfhRO+3[" } })
+const bit = new bitwork({ peer: { user: "root", pass: "yg_(/`!kyAKc/`ZQ<miSvF0}D+6tOs{N~{/" } } )
 
 function App() {
   const [blocks, setBlocks] = useState([]);
 
   useEffect(() => {
-    bit.onblock = (block) => {
+    bit.on("ready", async () => {
+      bit.on("mempool", (e) => {
+        console.log(e)
+      })
+    })
+    bit.onblock = async (block) => {
       console.log('bitwork block', block)
       setBlocks(currentBlocks => [...currentBlocks, block]);
     }
-    bit.on("ready", () => {
-      console.log('bitwork ready')
+    bit.on("error", async (err) => {
+      console.log('bitwork error', err)
     })
   }, []);
 

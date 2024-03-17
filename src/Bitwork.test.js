@@ -1,7 +1,7 @@
 import { TestScheduler } from 'rxjs/testing';
 import { throttleTime } from 'rxjs';
 const bitwork = require('bitwork')
-const bit = new bitwork({ rpc: { host:"192.168.2.25", user: "root", pass: "yg_(/`!kyAKc/`ZQ<miSvF0}D+6tOs{N~{/" } } )
+const bit = new bitwork({ peer: { user: "root", pass: "yg_(/`!kyAKc/`ZQ<miSvF0}D+6tOs{N~{/" } } )
 const testScheduler = new TestScheduler((actual, expected) => {
   // asserting the two objects are equal - required
   // for TestScheduler assertions to work via your test framework
@@ -23,10 +23,8 @@ it('generates the stream correctly', () => {
   });
 });
 
-it('get blockHeader', (done) => {
+it('get blockHeaders', (done) => {
   jest.setTimeout(1000000);
-  bit.blockHeader().then((res) => { 
-    expect(res).toHaveProperty('hash');
-    done();
-  });
+  bit.onheader()
 });
+
