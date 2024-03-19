@@ -1,7 +1,10 @@
 import { TestScheduler } from 'rxjs/testing';
 import { throttleTime } from 'rxjs';
 const bitwork = require('bitwork')
-const bit = new bitwork({ peer: { user: "root", pass: "yg_(/`!kyAKc/`ZQ<miSvF0}D+6tOs{N~{/" } } )
+const bit = new bitwork(
+  {  rpc: { user: "root", pass: "yg_(/`!kyAKc/`ZQ<miSvF0}D+6tOs{N~{/" } },
+  { peer: { user: "root", pass: "yg_(/`!kyAKc/`ZQ<miSvF0}D+6tOs{N~{/" } } 
+)
 const testScheduler = new TestScheduler((actual, expected) => {
   // asserting the two objects are equal - required
   // for TestScheduler assertions to work via your test framework
